@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/game_navigation"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/itemHome">
 
     <fragment
-        android:id="@+id/mainFragment"
+        android:id="@+id/itemHome"
         android:name="com.example.adv160420122week2.MainFragment"
         android:label="Main Screen"
         tools:layout="@layout/fragment_main" >
@@ -14,6 +14,9 @@
             android:id="@+id/actionGameFragment"
             app:destination="@id/gameFragment"
             app:enterAnim="@anim/nav_default_pop_enter_anim" />
+        <action
+            android:id="@+id/actionOptionFragment"
+            app:destination="@id/optionFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -35,10 +38,26 @@
         tools:layout="@layout/fragment_result">
         <action
             android:id="@+id/actionMainFragment"
-            app:destination="@id/mainFragment"
-            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+            app:destination="@id/itemHome"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/itemHome" />
         <argument
             android:name="resultScore"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/itemHistory"
+        android:name="com.example.adv160420122week2.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/itemProfile"
+        android:name="com.example.adv160420122week2.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <dialog
+        android:id="@+id/optionFragment"
+        android:name="com.example.adv160420122week2.OptionFragment"
+        android:label="Option Screen"
+        tools:layout="@layout/fragment_option" />
 </navigation>
